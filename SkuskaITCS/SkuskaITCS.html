@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <html>
+  <head>
+  <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Test1</title>
+
+  <script type="text/javascript">
+    function kontrola() 
+    {
+      var vysledek = true;
+      
+      if (document.getElementById('name').value == "") 
+      {
+        alert('jmeno musi byt vyplnìno');
+        vysledek = false;
+      }
+
+      var vzor= /^[a-zA-Z]+\s[a-zA-Z]/
+      if (document.getElementById('name').value.match(vzor)) {}
+      else 
+      {
+        alert('jmeno je spatne napsano');
+        vysledek = false;
+      }
+      
+      if (document.getElementById('email').value == "") 
+      {
+        alert('email musi byt vyplnìn');
+        vysledek = false;
+      }
+
+      var vzor=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]/
+      if (document.getElementById('email').value.match(vzor)) {}
+      else
+      {
+        alert('email nesplnuje dane nalezitosti');
+        vysledek = false;
+      }
+      
+      return vysledek; 
+    }
+    
+    </script>
+    
+    <style>
+      .wrapper > div {
+    background: #eee;
+    padding: 1em;
+}
+.wrapper > div:nth-child(odd) {
+    background: #ddd;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    }
+
+.logo {grid-column: 1/2; grid-row: 1/2;}   
+.nazev {grid-column: 2/4; grid-row: 1/2; text-align: center; color: red;}
+.menu {grid-column: 1/2; grid-row: 2/4; font-size: large; font-weight: bold;}
+.formular {grid-column: 2/4; grid-row: 2/3; line-height: 30px;}
+.widget {grid-column: 3/4; grid-row: 2/3;}
+.zapati {grid-column: 1/4; grid-row: 3/4; text-align: center;}
+
+@media only screen and (max-width:640px) 
+{
+  .wrapper
+  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  
+  .logo {display: none;}   
+  .nazev {grid-column: 1/4; grid-row: 1/2}
+  .menu {grid-column: 1/4; grid-row: 2/3;}
+  .formular {grid-column: 1/4; grid-row: 3/4;}
+  .widget {display: none;}
+  .zapati {grid-column: 1/4; grid-row: 4/5;}
+  .polozka {display: inline-block;}  
+}
+
+    </style>
+  </head>
+
+  <body>
+      <div class="wrapper"> 
+        
+          <div class="logo">
+            <img src="logo.png" alt="jablko">
+          </div>
+
+          <div class="nazev">
+            <h1>Apple</h1>
+          </div>
+
+          <div class="menu">
+            <ul> 
+              <li class="polozka">Polozka 1</li>
+              <li class="polozka">Polozka 2</li>
+            </ul>
+          </div>
+
+          <div class="formular">
+            <form action="" onsubmit="return kontrola();" method="post" name="f1">
+          <Input type="text" name="name" id="name">Jmeno</Input> <br>
+          <Input type="date" name="date" id="date">Datum narozeni</Input> <br>
+          <Input type="text" name="email" id="email">Email</Input> <br>
+          <Button type="submit">Odeslat</Button> </form>
+          </div>
+
+         
+
+          <div class="widget">
+            <img src="widget.jpg" alt="widget">
+          </div>
+
+          <div class="zapati">
+            Gabriela Cimoradska <br>
+            Gabika.subova@gmail.com
+          </div>
+
+     </div>  
+  </body>
+</html>
